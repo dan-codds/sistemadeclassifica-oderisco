@@ -1,0 +1,41 @@
+/* configurações  */
+
+.titulo-geral {
+    margin-top: 48px;
+}
+
+.geral {
+    margin-top: 12px;
+    padding: 26px 30px 30px;
+}
+
+.geral .campo {
+    max-width: 420px;
+}
+
+.geral .campo input {
+    height: 32px;
+    margin-top: 4px;
+}
+
+.geral h3 {
+    margin: 24px 0 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.geral table {
+    border: 1px solid #e5e5e5;
+}
+
+.geral td input {
+    height: 30px;
+}
+
+.rodape {
+    margin-top: 20px;
+}
+
+#aviso {
+    margin-top: 12px;
+}

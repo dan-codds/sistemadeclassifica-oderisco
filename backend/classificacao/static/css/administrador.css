@@ -1,0 +1,57 @@
+/* perfil e usuários */
+
+.atalhos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.titulo-geral {
+  margin-top: 40px;
+}
+
+.usuarios {
+  margin-top: 12px;
+  padding: 26px 30px 30px;
+  overflow: hidden;
+}
+
+.usuario-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px 14px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.usuario-form .campo input,
+.usuario-form .campo select {
+  height: 32px;
+  margin-top: 4px;
+}
+
+.usuarios .aviso {
+  margin: 0 0 14px;
+}
+
+.usuarios .scroll {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+.usuarios td .btn {
+  margin-right: 4px;
+}
+
+@media (max-width:900px) {
+  .usuario-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width:560px) {
+  .usuario-form {
+    grid-template-columns: 1fr;
+  }
+}

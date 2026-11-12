@@ -1,0 +1,201 @@
+/* cadastro do paciente */
+
+.titulos+form {
+  margin-top: 12px;
+}
+
+form#form>.sec:first-child {
+  margin-top: 12px;
+}
+
+.dados-paciente {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 20px;
+  padding: 22px 36px 30px;
+}
+
+.dados-paciente .nome,
+.dados-paciente .meio {
+  grid-column: span 2;
+}
+
+.dados-paciente input[type=text],
+.dados-paciente input[type=number] {
+  height: 32px;
+  border-radius: 6px;
+}
+
+.sexo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  align-content: flex-start;
+}
+
+.sexo legend {
+  width: 100%;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sexo .msg {
+  width: 100%;
+}
+
+.outros {
+  max-width: 500px;
+  margin: 0 36px 28px;
+}
+
+.outros input {
+  height: 32px;
+}
+
+.acoes {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.acoes .btn {
+  min-width: 230px;
+}
+
+#aviso {
+  margin: 24px auto 0;
+}
+
+
+
+/* resultado da classificação */
+
+
+#resultado {
+  max-width: 640px;
+  margin: 24px auto 0;
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 12.5px;
+}
+
+#resultado h3 {
+  padding: 16px 22px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.escala {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  padding: 14px 22px 0;
+}
+
+.escala li {
+  flex: 1;
+  padding: 6px 4px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  opacity: .35;
+}
+
+.escala li.atual {
+  opacity: 1;
+  font-weight: 700;
+  outline: 2px solid #333;
+  outline-offset: 1px;
+}
+
+#resultado dl {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px 12px;
+  margin: 18px 22px 12px;
+}
+
+#resultado dt {
+  color: var(--cinza);
+}
+
+#resultado h4 {
+  margin: 0 22px;
+  font-size: 12.5px;
+}
+
+#resultado ul {
+  margin: 8px 22px;
+  padding-left: 18px;
+}
+
+#resultado p {
+  margin: 12px 22px 18px;
+  font-size: 10.5px;
+  color: var(--cinza);
+}
+
+.finalizado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 610px;
+  margin: 32px auto 0;
+  padding: 20px 30px;
+  border-radius: 20px;
+  background: var(--verde);
+  color: #fff;
+  transition: background .2s, transform .2s;
+}
+
+.finalizado:hover {
+  background: var(--verde-escuro);
+  transform: translateY(-2px);
+}
+
+.finalizado h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.finalizado p {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.finalizado span {
+  font-size: 30px;
+}
+
+@media (max-width:900px) {
+  .dados-paciente {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 20px;
+  }
+}
+
+@media (max-width:560px) {
+  .dados-paciente {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dados-paciente .nome,
+  .dados-paciente .meio {
+    grid-column: span 1;
+  }
+
+  .finalizado {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #resultado dl {
+    grid-template-columns: 1fr;
+  }
+}
