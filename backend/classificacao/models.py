@@ -12,8 +12,7 @@ class Paciente(models.Model):
     nome = models.CharField(max_length=150)
     prontuario = models.CharField(max_length=30, unique=True)
     responsavel = models.CharField(max_length=150)
-    sexo = models.CharField(max_length=20, choices=SEXO_CHOICES)
-
+    sexo = models.CharField(max_length=100)
     def __str__(self):
         return self.nome
 
