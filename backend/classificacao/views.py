@@ -205,8 +205,8 @@ def api_usuario(request, id):
             'mensagem': 'Usuário excluído com sucesso.'
         })
 
-    # Editar usuário
-    # Editar usuário
+   #editar usuario
+
     if pessoa.is_superuser:
         return JsonResponse(
             {'erro': 'Não é permitido editar um superusuário por esta tela.'},
