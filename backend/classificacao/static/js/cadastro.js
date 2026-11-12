@@ -37,6 +37,9 @@ montarLista('sinais', parametros.opcoes.sinais, 'checkbox', 'sinal');
   function mostrarCampoOutros() {
     var sinais = valoresMarcados(form, 'sinal');
     pegar('outrosBox').hidden = sinais.indexOf('Outros') < 0;
+
+    var sexo = valoresMarcados(form, 'sexo');
+    pegar('sexoOutroBox').hidden = sexo.indexOf('Outro') < 0;
   }
 
   function lerFormulario() {
