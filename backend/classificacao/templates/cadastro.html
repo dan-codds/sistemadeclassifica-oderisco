@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo cadastro | Classificação de Risco</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+</head>
+
+<body class="sistema" data-pagina="cadastro">
+
+  <nav class="menu" id="menu"></nav>
+
+  <div class="conteudo">
+    <header class="cabecalho" id="topo"></header>
+
+    <main>
+      <div class="titulos">
+        <h1>Novo cadastro</h1>
+        <p class="sub">Preencha os dados do paciente para gerar a classificação de risco</p>
+      </div>
+
+      <form id="form" novalidate>
+
+        <section class="sec">
+          <div class="sec-cab"><i class="i i-pessoa"></i>
+            <h4>1. Dados do Paciente</h4>
+          </div>
+          <div class="dados-paciente">
+            <div class="campo nome">
+              <label for="nome">Nome completo
+                <b>*</b>
+              </label>
+              <input type="text" id="nome" placeholder="Nome completo do paciente">
+                <small class="msg"></small>
+              </div>
+
+            <div class="campo">
+              <label for="idade">Idade
+                <b>*</b>
+              </label>
+              <input type="number" id="idade" min="0" max="14" placeholder="0">
+              <small class="msg"></small>
+            </div>
+
+            <div class="campo">
+              <label for="peso">Peso
+                <b>*</b>
+              </label>
+              <input type="number" id="peso" step="0.1" min="0" placeholder="0.0 kg">
+              <small class="msg"></small>
+            </div>
+
+            <div class="campo meio">
+              <label for="prontuario">Número do prontuário
+                <b>*</b>
+              </label>
+              <input type="text" id="prontuario" placeholder="Ex: 000123456">
+              <small class="msg"></small>
+            </div>
+
+            <div class="campo meio">
+              <label for="responsavel">Nome do responsável
+                <b>*</b>
+              </label>
+              <input type="text" id="responsavel" placeholder="Nome completo do responsável">
+              <small class="msg"></small>
+            </div>
+
+            <fieldset class="campo meio sexo">
+              <legend>Sexo<b>*</b></legend>
+
+              <label class="opc"><input class="cx" type="radio" name="sexo" id="sexo0" value="Masculino">Masculino</label>
+              <label class="opc"><input class="cx" type="radio" name="sexo" value="Feminino">Feminino</label>
+              <label class="opc"><input class="cx" type="radio" name="sexo" value="Outro">Outro</label>
+              <small class="msg"></small>
+            </fieldset>
+
+            <div class="campo meio"><label for="profissional">Enfermeiro responsável</label><input type="text"
+                id="profissional" placeholder="Nome do enfermeiro" readonly><small class="aux">Identificado automaticamente pelo sistema.</small></div>
+          </div>
+        </section>
+
+        <section class="sec campo">
+          <div class="sec-cab"><i class="i i-doc"></i>
+            <h4>2. Queixas Principais</h4><small>Selecione uma ou mais opções</small>
+          </div>
+          <div class="grade" id="queixas"></div>
+          <small class="msg"></small>
+        </section>
+
+        <section class="sec">
+          <div class="sec-cab"><i class="i i-alerta"></i>
+            <h4>3. Sinais Vitais</h4>
+          </div>
+          <div class="sinais">
+            <div class="campo"><label for="temp">Temperatura (°C)</label><input type="number" id="temp" step="0.1"><small class="msg"></small></div>
+            <div class="campo"><label for="fc">Frequência cardíaca (bpm)</label><input type="number" id="fc"><small class="msg"></small></div>
+            <div class="campo"><label for="fr">Frequência respiratória (irpm)</label><input type="number" id="fr"><small class="msg"></small></div>
+            <div class="campo"><label for="sat">Saturação de O₂ (%)</label><input type="number" id="sat"><small class="msg"></small></div>
+            <div class="campo"><label for="pas">Pressão arterial sistólica</label><input type="number" id="pas"><small class="msg"></small></div>
+            <div class="campo"><label for="pad">Pressão arterial diastólica</label><input type="number" id="pad"><small class="msg"></small></div>
+          </div>
+        </section>
+
+        <section class="sec campo">
+          <div class="sec-cab"><i class="i i-pessoa"></i>
+            <h4>4. Estado Geral</h4><small>Selecione uma ou mais opções</small>
+          </div>
+          <div class="grade e" id="estado"></div>
+          <small class="msg"></small>
+        </section>
+
+        <section class="sec campo">
+          <div class="sec-cab"><i class="i i-alerta"></i>
+            <h4>5. Outros sinais clínicos</h4><small>Selecione uma ou mais opções</small>
+          </div>
+          <div class="grade" id="sinais"></div>
+          <div class="campo outros" id="outrosBox" hidden><label for="outrosDesc">Descreva o outro sinal clínico<b>*</b></label><input type="text" id="outrosDesc"><small class="msg"></small></div>
+          <small class="msg"></small>
+        </section>
+
+        <p class="aviso" id="aviso" role="alert" hidden></p>
+
+        <div class="campo">
+          <label for="classificacao">Classificação de risco<b>*</b></label>
+          <select id="classificacao" required>
+            <option value="">Selecione a classificação</option>
+          </select>
+          <small class="msg"></small>
+        </div>
+
+        <div id="resultado" hidden></div>
+
+        <p class="acoes">
+          <button type="submit" class="btn">Classificar paciente</button>
+        </p>
+
+        <div id="resultado" hidden></div>
+
+        <a class="finalizado" id="finalizado" href="/historico/" hidden>
+          <div>
+            <h3>Cadastro finalizado</h3>
+            <p>O atendimento foi registrado. Clique para ver no histórico de atendimentos.</p>
+          </div>
+          <span>›</span>
+        </a>
+    </main>
+  </div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/cadastro.js' %}"></script>
+</body>
+
+</html>

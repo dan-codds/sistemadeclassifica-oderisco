@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Classificação de Risco</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+  <div class="fundo">
+    <form class="login" id="fLogin" novalidate>
+      <div class="avatar"><i class="i i-avatar"></i></div>
+      <div class="t1">Sistema de Classificação de Risco</div>
+      <div class="t2">Informe suas credenciais para acessar</div>
+
+      <label for="usuario">Usuário</label>
+      <input class="campo-login" id="usuario" name="usuario" type="text" autocomplete="username" required>
+
+      <label for="senha">Senha</label>
+      <div class="senha">
+        <input class="campo-login" id="senha" name="senha" type="password" autocomplete="current-password" required>
+        <button type="button" id="verSenha" aria-label="Mostrar ou ocultar a senha"><i class="i i-olho"></i></button>
+      </div>
+
+      <div class="extra">
+        <span>Esqueceu sua senha?</span>
+        <a href="/sem-usuario/">Clique aqui</a>
+      </div>
+
+      <div class="espaco">
+        <p class="aviso" id="erroLogin" role="alert" hidden></p>
+      </div>
+
+      <button type="submit" class="entrar">Entrar</button>
+      <div class="ou">Ou</div>
+      <a class="nova" href="/sem-usuario/">Criar uma nova conta</a>
+    </form>
+  </div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/login.js' %}"></script>
+
+</body>
+</html>

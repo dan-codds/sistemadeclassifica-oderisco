@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurações</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/configuracoes.css' %}">
+</head>
+<body class="sistema" data-pagina="configuracoes">
+
+  <nav class="menu" id="menu"></nav>
+
+  <div class="conteudo">
+    <header class="cabecalho" id="topo"></header>
+
+    <main>
+      <div class="titulos"><h1>Perfil do Usuário</h1><p class="sub">Informações do usuário autenticado</p></div>
+
+      <section class="cartao perfil">
+        <div class="topo"><div class="avatar" id="perfilAvatar"></div><div><div class="nome" id="perfilNome"></div><div class="cargo" id="perfilCargo"></div></div></div>
+        <div class="perfil-dados">
+          <div><div class="rot">Usuário</div><div class="val" id="perfilUsuario"></div></div>
+          <div><div class="rot">Instituição</div><div class="val" id="perfilInst"></div></div>
+          <div><div class="rot">Departamento</div><div class="val" id="perfilDepto"></div></div>
+          <div><div class="rot">Status da conta</div><div class="status"><span>Ativo</span></div>
+        </div>
+        <button type="button" class="btn-sair" id="btnSair">SAIR</button>
+      </section>
+
+
+      <div class="titulos titulo-geral"><h1>Configurações gerais</h1><p class="sub">Hospital e tempos estimados de espera</p></div>
+      <p class="aviso" id="aviso" hidden>Somente administradores podem alterar as configurações.</p>
+
+      <section class="cartao geral">
+        <fieldset>
+          <div class="campo"><label for="hospital">Nome do hospital</label><input type="text" id="hospital" value="Hospital Municipal Getúlio Vargas Filho" readonly></div>
+
+          <h3>Prioridade e tempo estimado de espera por classificação</h3>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Cor</th><th>Prioridade</th><th>Tempo estimado</th></tr></thead>
+              <tbody id="tempos"></tbody>
+            </table>
+          </div>
+
+          <p class="rodape"><button class="btn peq" id="salvar">Salvar</button><span class="ok" id="ok" hidden></span></p>
+        </fieldset>
+      </section>
+    </main>
+  </div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/configuracoes.js' %}"></script>
+</body>
+</html>

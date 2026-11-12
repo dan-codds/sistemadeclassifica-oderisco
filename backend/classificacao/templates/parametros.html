@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critérios de classificação</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/parametros.css' %}">
+</head>
+<body class="sistema" data-pagina="parametros" data-admin="1">
+
+  <nav class="menu" id="menu"></nav>
+
+  <div class="conteudo">
+    <header class="cabecalho" id="topo"></header>
+
+    <main>
+      <div class="titulos"><h1>Configuração dos critérios de classificação</h1><p class="sub">Regras para definição de prioridade do paciente</p></div>
+
+      <section class="cartao lista">
+        <div class="cab"><h2>Regras configuradas</h2><button type="button" class="btn-nova" id="novaRegra">Nova Regra <i class="i i-mais"></i></button></div>
+        <div class="regras" id="regras"></div>
+      </section>
+
+      <div class="sobreposicao" id="modal" hidden>
+        <form class="modal" id="form" novalidate>
+          <div class="topo"><div class="btn-pill titulo" id="tituloModal">NOVO PARÂMETRO DE CLASSIFICAÇÃO</div><button type="button" class="btn-pill voltar" id="fecharModal">VOLTAR</button></div>
+
+          <div class="dados">
+            <div class="campo"><label for="regraNome">Nome para o parâmetro</label><input type="text" id="regraNome" placeholder="Ex: Parâmetro de febre"><small class="msg"></small></div>
+            <div class="campo"><label for="regraData">Data de criação</label><input type="text" id="regraData" placeholder="DD/MM/AAAA"><small class="msg"></small></div>
+            <div class="campo"><label for="regraProf">Nome do profissional que esta criando</label><input type="text" id="regraProf" placeholder="Ex: Marcos Pereira (Administrador)"><small class="msg"></small></div>
+            <div class="campo"><label for="regraCor">Cor de classificação</label><select id="regraCor"></select><small class="msg"></small></div>
+            <div class="campo"><label for="regraFaixa">Faixa etária</label><select id="regraFaixa"></select><small class="msg"></small></div>
+          </div>
+
+          <section class="sec campo">
+            <div class="sec-cab"><i class="i i-doc"></i><h4>2. Queixas Principais</h4><small>Selecione entre as intercorrências</small></div>
+            <div class="grade" id="queixas"></div>
+            <small class="msg"></small>
+          </section>
+
+          <section class="sec">
+            <div class="sec-cab"><i class="i i-alerta"></i><h4>3. Sinais Vitais</h4></div>
+            <div class="sinais">
+              <div class="campo"><label for="temp">Temperatura (°C)</label><input type="number" id="temp" step="0.1"><small class="msg"></small></div>
+              <div class="campo"><label for="fc">Frequência cardíaca (bpm)</label><input type="number" id="fc"><small class="msg"></small></div>
+              <div class="campo"><label for="fr">Frequência respiratória (irpm)</label><input type="number" id="fr"><small class="msg"></small></div>
+              <div class="campo"><label for="sat">Saturação de O₂ (%)</label><input type="number" id="sat"><small class="msg"></small></div>
+              <div class="campo"><label for="pas">Pressão arterial sistólica</label><input type="number" id="pas"><small class="msg"></small></div>
+              <div class="campo"><label for="pad">Pressão arterial diastólica</label><input type="number" id="pad"><small class="msg"></small></div>
+            </div>
+          </section>
+
+          <section class="sec campo">
+            <div class="sec-cab"><i class="i i-pessoa"></i><h4>4. Estado Geral</h4><small>Selecione apenas uma opção</small></div>
+            <div class="grade e" id="estado"></div>
+            <small class="msg"></small>
+          </section>
+
+          <section class="sec campo">
+            <div class="sec-cab"><i class="i i-alerta"></i><h4>5. Outros sinais clínicos</h4><small>Selecione entre as opções clínicas</small></div>
+            <div class="grade" id="sinais"></div>
+            <small class="msg"></small>
+          </section>
+
+          <p class="aviso" id="aviso" role="alert" hidden></p>
+          <button class="btn-criar" id="botaoSalvar" type="submit">CRIAR PARÂMETRO DE CLASSIFICAÇÃO</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/parametros.js' %}"></script>
+</body>
+</html>

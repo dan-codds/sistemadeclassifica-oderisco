@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histórico de atendimentos</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/historico.css' %}">
+</head>
+<body class="sistema" data-pagina="historico">
+
+  <nav class="menu" id="menu"></nav>
+
+  <div class="conteudo">
+    <header class="cabecalho" id="topo"></header>
+
+    <main>
+      <div class="titulos"><h1>Histórico de atendimentos</h1><p class="sub">Consulte todas as classificações realizadas no sistema</p></div>
+
+      <form class="cartao filtros" onsubmit="return false">
+        <div class="bloco"><label for="fPaciente">Nome do paciente</label><div class="entrada"><input id="fPaciente" type="text"></div></div>
+        <div class="bloco"><label for="fData">Data</label><div class="entrada"><input id="fData" type="date"><i class="i i-calendario"></i></div></div>
+        <div class="bloco"><label for="fCor">Cor da classificação</label><div class="entrada"><select id="fCor"></select><i class="i i-seta"></i></div></div>
+        <div class="bloco"><label for="fProf">Enfermeiro responsável</label><div class="entrada"><input id="fProf" type="text"></div></div>
+      </form>
+
+      <section class="cartao tabela">
+        <div class="cab"><i class="i i-prancheta"></i>Registros recentes (<span id="contador">0</span>)</div>
+        <div class="rolagem">
+          <div class="tr th"><span class="c1">Data</span><span class="c2">Hora</span><span class="c3">Paciente</span><span class="c4">Enfermeiro responsável</span><span class="c5">Cor da classificação</span></div>
+          <div id="corpo"></div>
+        </div>
+      </section>
+
+      <dialog id="dlg"></dialog>
+    </main>
+  </div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/historico.js' %}"></script>
+</body>
+</html>
