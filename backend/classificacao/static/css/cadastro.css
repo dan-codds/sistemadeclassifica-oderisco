@@ -195,6 +195,10 @@ form#form>.sec:first-child {
     text-align: center;
   }
 
+  [hidden] {
+  display: none !important;
+}
+
   #resultado dl {
     grid-template-columns: 1fr;
   }
