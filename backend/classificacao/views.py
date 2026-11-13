@@ -597,12 +597,14 @@ def api_config(request):
             status=403
         )
 
-    configuracao = ConfiguracaoSistema.objects.first()
+    configuracao = ConfiguracaoSistema.objects.exclude(
+        hospital=''
+    ).first()
 
     if configuracao is None:
         configuracao = ConfiguracaoSistema.objects.create(
-            hospital=''
-        )
+            hospital='Hospital Municipal Getúlio Vargas Filho'
+    )
 
     if request.method == 'GET':
         return JsonResponse({
