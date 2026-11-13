@@ -51,7 +51,9 @@ montarLista('sinais', parametros.opcoes.sinais, 'checkbox', 'sinal');
       peso: pegar('peso').value,
       prontuario: pegar('prontuario').value.trim(),
       responsavel: pegar('responsavel').value.trim(),
-      sexo: sexo.length > 0 ? sexo[0] : '',
+      sexo: sexo.length > 0
+        ? (sexo[0] === 'Outro' ? pegar('sexoOutro').value.trim() : sexo[0])
+        : '',
       classificacaoNivel: pegar('classificacao').value,
       queixas: valoresMarcados(form, 'queixa'),
       estado: valoresMarcados(form, 'estado'),
