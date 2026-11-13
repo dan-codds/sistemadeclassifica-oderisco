@@ -10,7 +10,7 @@ async function iniciarConfiguracoes(usuario) {
 
   preencherPerfil(usuario);
   pegar('btnSair').addEventListener('click', sair);
-  pegar('hospital').value = config.hospital || '';
+  pegar('hospital').value = config.hospital || 'NOME NÃO RECEBIDO';
   console.log('Hospital recebido:', config.hospital);
 
   var html = '';
