@@ -43,14 +43,13 @@ async function iniciarConfiguracoes(usuario) {
       parametros.classificacoes[nivel][campo] = campos[i].value.trim();
     }
 
-    var r1 = await chamarApi('PUT', '/api/config', { hospital: pegar('hospital').value.trim() });
     var r2 = await chamarApi('PUT', '/api/parametros', parametros);
 
-    if (r1.ok && r2.ok) {
-      pegar('ok').textContent = 'Configurações salvas.';
-    } else {
-      pegar('ok').textContent = r1.corpo.erro || r2.corpo.erro;
-    }
+   if (r2.ok) {
+    pegar('ok').textContent = 'Configurações salvas.';
+  } else {
+    pegar('ok').textContent = r2.corpo.erro;
+  }
     pegar('ok').hidden = false;
   };
 }
