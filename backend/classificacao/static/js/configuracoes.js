@@ -11,6 +11,7 @@ async function iniciarConfiguracoes(usuario) {
   preencherPerfil(usuario);
   pegar('btnSair').addEventListener('click', sair);
   pegar('hospital').value = config.hospital || '';
+  console.log('Hospital recebido:', config.hospital);
 
   var html = '';
   for (var n in parametros.classificacoes) {
