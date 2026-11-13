@@ -24,10 +24,12 @@ async function iniciarConfiguracoes(usuario) {
   pegar('tempos').innerHTML = html;
 
   if (usuario.perfil !== 'admin') {
-    var campos = document.querySelectorAll('.geral input');
+    var campos = document.querySelectorAll('#tempos input');
     for (var i = 0; i < campos.length; i++) {
       campos[i].disabled = true;
     }
+
+    pegar('hospital').disabled = true;
     pegar('salvar').hidden = true;
     pegar('aviso').hidden = false;
   }
