@@ -465,7 +465,9 @@ def api_atendimentos(request):
             status=400
         )
 
-    if sexo not in ['Masculino', 'Feminino', 'Outro']:
+    if sexo not in ['Masculino', 'Feminino', 'Outro'] and not (
+        isinstance(sexo, str) and sexo.strip()
+    ):
         return JsonResponse({'erro': 'Sexo inválido.'}, status=400)
 
     try:
