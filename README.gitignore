@@ -1,1 +1,24 @@
+# python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ambiente virtual
+venv/
+.venv/
+env/
+
+# arquivos de configuração e senhas
+.env
+.env.*
+
+# banco de dados local
+db.sqlite3
+
+# arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# configurações do VS Code
+.vscode/
 
